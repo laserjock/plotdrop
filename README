@@ -1,0 +1,50 @@
+
+PlotDrop
+========
+A minimal GNOME frontend to GNUPlot.
+jcspray@icculus.org
+http://icculus.org/~jcspray/plotdrop/
+
+PlotDrop is designed for quick and simple visualisation of 2D 
+data series.  It is not intended to encompass anywhere near 
+the full capabilities of GNUPlot.
+
+PlotDrop is intended to be used in tandem with an external 
+filesystem browser such as GNOME's nautilus or KDE's konqueror,
+whereby data files may be added by dragging them from the 
+browser to the file list.
+
+Data files should be simple flat data of the kind preferred 
+by GNUPlot, like 
+ 1.0 3.6
+ 2.0 5.2
+ 4.0 5.1
+
+The series of a datafile to plot is set as an integer in the 
+plot list.  To plot more than one series simply add a file 
+more than once and set a different series number on each 
+entry.
+
+Error bar (+/- y) sizes may be specified in an extra column directly 
+after every data column.
+
+Compilation
+===========
+
+PlotDrop is tested with GCC 3.3.  It requires the following 
+libraries:
+  * GTK+ 2.4 (earlier versions untested)
+  * libgnomevfs
+  * libglade
+
+Just type "make".
+
+Installation
+============
+
+PlotDrop may be run uninstalled from the directory in which 
+it was compiled.  Alternatively, it may be installed systemwide 
+by issuing the command "make install" with root privileges as 
+appropriate.
+
+

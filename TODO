@@ -1,0 +1,16 @@
+
+ * Allow multiple selection/removal
+ * Allow removal by dragging to "Remove" button.
+ * Allow per-series plot style selection with combo in treeview
+ * Load data files with Gnome-VFS and pipe them to gnuplot, correspondingly 
+   maintain URIs instead of filenames.
+ * Replace series text editable with something more user friendly, 
+   probe datafile to find allowed values.
+ * Allow adding formula plots as well as data
+ * Internationalize
+ * It is not clear to the user which export formats are safe to use 
+   with 'enhanced' output.
+ * Sort out character encodings: filenames (g_filename_to_utf8), onscreen (utf8), GNUPlot (?)
+ * Support GNOME crash handler (libgnome?)
+ * Do character encoding for gnuplot such that the euro symbol survives - note 
+   that gnuplot <4.0 does not have iso-8859-15
