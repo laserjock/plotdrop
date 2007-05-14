@@ -210,6 +210,24 @@ void gnuplot_compose_script (FILE *plotscript, plotdata const *data)
 				case STYLE_LINESPOINTS:
 					fprintf (plotscript, "with linespoints ");
 					break;
+				case STYLE_UNIQUE:
+					fprintf (plotscript, "smooth unique ");
+					break;
+				case STYLE_FREQUENCY:
+					fprintf (plotscript, "smooth frequency ");
+					break;
+				case STYLE_CSPLINES:
+					fprintf (plotscript, "smooth csplines ");
+					break;
+				case STYLE_ACSPLINES:
+					fprintf (plotscript, "smooth acsplines ");
+					break;
+				case STYLE_BEZIER:
+					fprintf (plotscript, "smooth bezier ");
+					break;
+				case STYLE_SBEZIER:
+					fprintf (plotscript, "smooth sbezier ");
+					break;
 			}
 		}
 

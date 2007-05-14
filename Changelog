@@ -1,4 +1,9 @@
 
+Version 0.52:
+	* Set limits on axis adjustments to infinity.
+	* Include csplines, acsplines, bezier, sbezier,
+	  unique, frequency styles (Johann Wilhelm)
+
 Version 0.51:
 	* Fix uninstallation in Makefile, add DESTDIR stuff for packaging
 	* Fix export dialog remembering where to export to.

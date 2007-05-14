@@ -874,7 +874,14 @@ values</property>
 			  <property name="visible">True</property>
 			  <property name="items" translatable="yes">Points
 Lines
-Points &amp; Lines</property>
+Points &amp; Lines
+Cubic Splines
+Approximated Cubic Splines
+Bezier
+Unique &amp; Bezier
+Unique
+Frequency
+</property>
 			  <property name="add_tearoffs">False</property>
 			  <property name="focus_on_click">True</property>
 			</widget>

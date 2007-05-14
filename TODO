@@ -1,4 +1,5 @@
 
+ * See how the splines etc modes work with errorbars
  * Allow multiple selection/removal
  * Allow removal by dragging to "Remove" button.
  * Allow per-series plot style selection with combo in treeview

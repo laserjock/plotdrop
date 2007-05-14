@@ -17,7 +17,9 @@ typedef struct plotdata {
 	char const *xlabel;
 	char const *ylabel;
 	char const *title;
-	enum {STYLE_POINTS = 0, STYLE_LINES, STYLE_LINESPOINTS} style;
+	enum {STYLE_POINTS = 0, STYLE_LINES, STYLE_LINESPOINTS, STYLE_CSPLINES,                                                         
+		STYLE_ACSPLINES, STYLE_BEZIER, STYLE_SBEZIER, STYLE_UNIQUE,  
+		STYLE_FREQUENCY} style;
 	unsigned int zeroaxis;
 	unsigned int errorbars;
 	unsigned int grid;
