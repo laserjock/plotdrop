@@ -878,6 +878,8 @@ void droplist_about ()
 		GTK_ABOUT_DIALOG (aboutdialog), VERSION);
 
 	gtk_dialog_run (GTK_DIALOG (aboutdialog));
+
+	gtk_widget_destroy (aboutdialog);
 #endif
 }
 
