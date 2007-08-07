@@ -4,7 +4,7 @@ PREFIX=/usr/local
 DATADIR=$(PREFIX)/share/$(TARGET)
 BINDIR=$(PREFIX)/bin
 
-VERSION=0.52-pre
+VERSION=0.5.2
 
 OBJECTS=main.o gnuplot.o droplist.o
 
@@ -27,10 +27,10 @@ install: all
 	install -m 0644 plotdrop.desktop $(DESTDIR)$(PREFIX)/share/applications
 	install -m 0644 plotdrop.png $(DESTDIR)$(DATADIR)
 	install -d $(DESTDIR)$(PREFIX)/share/pixmaps
-	ln -sf $(DESTDIR)$(DATADIR)/plotdrop.png $(DESTDIR)$(PREFIX)/share/pixmaps
+	install -m 0644 plotdrop.png $(DESTDIR)$(PREFIX)/share/pixmaps
 
 uninstall:
-	rm -f $(DESTDIR)$(BINDIR)/$(TARGET)\
+	rm -f $(DESTDIR)$(BINDIR)/$(TARGET) \
 	$(DESTDIR)$(DATADIR)/droplist.glade \
 	$(DESTDIR)$(PREFIX)/share/pixmaps/plotdrop.png \
 	$(DESTDIR)$(DATADIR)/plotdrop.png \

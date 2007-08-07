@@ -1,5 +1,8 @@
 
-Version 0.52:
+Version 0.5.2:
+	* Debianised version number
+	* Makefile copies extra icon instead of symlinking
+	* Fix about dialog
 	* Set limits on axis adjustments to infinity.
 	* Include csplines, acsplines, bezier, sbezier,
 	  unique, frequency styles (Johann Wilhelm)
