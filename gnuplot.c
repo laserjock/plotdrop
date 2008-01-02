@@ -42,7 +42,7 @@ char *gnuplot_plot (
 
 	char scriptname[256];
 	snprintf (scriptname, 255, "/tmp/plotdrop_%d.gnu", getpid ());
-	FILE *plotscript = fopen (scriptname, "w");
+	FILE *plotscript = fopen (scriptname, "wx");
 
 	if (!plotscript) {
 		return "Plotdrop: Could not open temporary script file";
