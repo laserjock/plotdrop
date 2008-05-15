@@ -1,0 +1,69 @@
+
+Version 0.5.2:
+	* Debianised version number
+	* Makefile copies extra icon instead of symlinking
+	* Fix about dialog
+	* Set limits on axis adjustments to infinity.
+	* Include csplines, acsplines, bezier, sbezier,
+	  unique, frequency styles (Johann Wilhelm)
+
+Version 0.51:
+	* Fix uninstallation in Makefile, add DESTDIR stuff for packaging
+	* Fix export dialog remembering where to export to.
+	* Move about dialog out of glade, to avoid requiring glade 2.6
+	* Guess export format correctly for filenames containing multiple periods
+	* Make errorbars same color as data lines.
+	* For plots with points, prefer to use the nicer shapes, rather
+	  than crosses and stars
+	* Fix detection of the absence of gnuplot
+
+Version 0.5:
+	* Fixed sensitivity of plot/export buttons
+	* Make export guess format to be used from extension given
+	* Make export remember user's desired format during session
+	* Add XFig format to export
+	* Allow more decimal places in limits values
+	* Add "Use super/subscripts" checkbox, controls whether 
+		gnuplot uses 'enhanced' output modes.
+	* Check for GNUPlot at startup, complain if it's absent
+	* Display GNUPlot's output in case of error
+	* Enable startup notification in .desktop file
+	* Rearrange UI, add menu bars
+	* Add about dialog
+	* Add "Add file" dialog
+	* Fix non-ASCII characters in titles and captions, now anything
+	  in ISO-8859-1 should work.  No full Unicode, blame gnuplot.
+	* Change GNUPlot to gnuplot in UI and homepage.
+
+Version 0.4:
+	* Fixed setting limits in non-english locales
+	* Added "Show Zero Axes" check button
+	* Fixed some memory leaks
+	* Handle relative paths passed as command line arguments
+	* Escaped title/caption strings when passing to gnuplot (now
+		one can have equotation marks)
+	* Tell the user when GNUPlot failed
+	* Add crude error bar support
+	* Add format selection when exporting, initially PS, EPS and 
+	  color variants, SVG and PNG.
+	* Updated COPYING with the FSF's new address
+	* Added help dialog for 'Extra' tab
+	* When compiled with GTK+ >= 2.8, prompt for confirmation
+		when overwriting file on export.
+
+Version 0.3:
+	* Add "Series" column to allow plotting of different
+		columns in a datafile.
+	* Change GNUPlot style command from "set style data" to 
+		"set data style" to be compatible with older versions.
+	* Modify .desktop file to allow dragging one or more 
+		datafiles onto it and have them be opened.
+
+Version 0.2:
+	* Add limits UI
+	* Add UI for arbitrary commands
+	* Open data files on double click
+	* Add icon for window and .desktop file
+
+Version 0.1:
+	* Initial release
