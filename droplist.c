@@ -31,6 +31,8 @@ static struct {
 	GtkWidget *errorbarscheck;
 	GtkWidget *gridcheck;
 	GtkWidget *enhancedmodecheck;
+	GtkWidget *logscaleycheck;
+	GtkWidget *logscalexcheck;
 	GtkWidget *titleentry;
 	GtkWidget *xlabelentry;
 	GtkWidget *ylabelentry;
@@ -196,6 +198,9 @@ void droplist_init_gui ()
 	droplist.errorbarscheck = glade_xml_get_widget (xml, "ShowErrorbars");
 	droplist.gridcheck = glade_xml_get_widget (xml, "ShowGrid");
 	droplist.enhancedmodecheck = glade_xml_get_widget (xml, "EnableSuperSubScripts");
+	droplist.logscaleycheck = glade_xml_get_widget (xml, "EnableLogscaleY");
+	droplist.logscalexcheck = glade_xml_get_widget (xml, "EnableLogscaleX");
+	
 
 	droplist.xlabelentry = glade_xml_get_widget (xml, "XLabel");
 	droplist.ylabelentry = glade_xml_get_widget (xml, "YLabel");
@@ -369,6 +374,10 @@ void droplist_getdata (plotdata *data)
 		GTK_TOGGLE_BUTTON (droplist.gridcheck));
 	data->enhancedmode = gtk_toggle_button_get_active (
 		GTK_TOGGLE_BUTTON (droplist.enhancedmodecheck));
+	data->logscaley = gtk_toggle_button_get_active (
+		GTK_TOGGLE_BUTTON (droplist.logscaleycheck));
+	data->logscalex = gtk_toggle_button_get_active (
+		GTK_TOGGLE_BUTTON (droplist.logscalexcheck));
 
 	// Captions
 	data->xlabel = gtk_entry_get_text (GTK_ENTRY (droplist.xlabelentry));

@@ -27,6 +27,8 @@ typedef struct plotdata {
 	unsigned int xminset, xmaxset, yminset, ymaxset;
 	char *extra;
 	unsigned int enhancedmode;
+	unsigned int logscaley;
+	unsigned int logscalex;
 } plotdata;
 
 typedef enum {

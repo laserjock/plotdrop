@@ -1,4 +1,7 @@
 
+Version 0.5.3:
+	* Add logarithmic scale option (Johannes Marbach)
+
 Version 0.5.2:
 	* Debianised version number
 	* Makefile copies extra icon instead of symlinking
