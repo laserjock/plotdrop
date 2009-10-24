@@ -140,6 +140,12 @@ void gnuplot_compose_script (FILE *plotscript, plotdata const *data)
 		fprintf (plotscript, "set title \"%s\"\n", escaped);
 		g_free (escaped);
 	}
+	
+	// Logscales
+	if (data->logscaley)
+		fprintf (plotscript, "set logscale y\n");
+	if (data->logscalex)
+		fprintf (plotscript, "set logscale x\n");
 
 	if (data->zeroaxis)
 		fprintf (plotscript, "set zeroaxis\n");
@@ -149,7 +155,7 @@ void gnuplot_compose_script (FILE *plotscript, plotdata const *data)
 
 	if (data->extra)
 		fprintf (plotscript, "%s\n", data->extra);
-
+	
 	char *plotcommand = "plot ";
 	fprintf (plotscript, "%s", plotcommand);
 
@@ -170,7 +176,7 @@ void gnuplot_compose_script (FILE *plotscript, plotdata const *data)
 	if (data->ymaxset)
 		fprintf (plotscript, "%f", data->ymax);
 	fprintf (plotscript, "]");
-
+	
 	// For cycling through point types "with points pt %d"
 	int ptcounter = 0;
 

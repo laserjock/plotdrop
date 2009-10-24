@@ -962,6 +962,52 @@ Frequency
 			  <property name="y_options"></property>
 			</packing>
 		      </child>
+		      
+		      <child>
+			<widget class="GtkCheckButton" id="EnableLogscaleY">
+			  <property name="visible">True</property>
+			  <property name="tooltip" translatable="yes">Use logarithmic scaling for the y-axis</property>
+			  <property name="can_focus">True</property>
+			  <property name="label" translatable="yes">Enable logarithmic y-axis</property>
+			  <property name="use_underline">True</property>
+			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
+			  <property name="active">False</property>
+			  <property name="inconsistent">False</property>
+			  <property name="draw_indicator">True</property>
+			</widget>
+			<packing>
+			  <property name="left_attach">0</property>
+			  <property name="right_attach">2</property>
+			  <property name="top_attach">5</property>
+			  <property name="bottom_attach">6</property>
+			  <property name="x_options">fill</property>
+			  <property name="y_options"></property>
+			</packing>
+			  </child>
+			  
+			  <child>
+			<widget class="GtkCheckButton" id="EnableLogscaleX">
+			  <property name="visible">True</property>
+			  <property name="tooltip" translatable="yes">Use logarithmic scaling for the x-axis</property>
+			  <property name="can_focus">True</property>
+			  <property name="label" translatable="yes">Enable logarithmic x-axis</property>
+			  <property name="use_underline">True</property>
+			  <property name="relief">GTK_RELIEF_NORMAL</property>
+			  <property name="focus_on_click">True</property>
+			  <property name="active">False</property>
+			  <property name="inconsistent">False</property>
+			  <property name="draw_indicator">True</property>
+			</widget>
+			<packing>
+			  <property name="left_attach">0</property>
+			  <property name="right_attach">2</property>
+			  <property name="top_attach">6</property>
+			  <property name="bottom_attach">7</property>
+			  <property name="x_options">fill</property>
+			  <property name="y_options"></property>
+			</packing>
+			  </child>
 
 		      <child>
 			<widget class="GtkCheckButton" id="ShowErrorbars">
