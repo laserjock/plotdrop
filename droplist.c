@@ -9,7 +9,8 @@
 // For exit ()
 #include <stdlib.h>
 
-#include <libgnomevfs/gnome-vfs.h>
+#include <gio/gio.h>
+#include <glib.h>
 #include <glade/glade.h>
 #include <string.h>
 #include "droplist.h"
@@ -616,7 +617,19 @@ void droplist_drag_data_received (GtkWidget *widget,
                                   guint time,
                                   gpointer user_data)
 {
-	GList *list = NULL;
+gchar **uriList;
+gchar *listItem;
+
+uriList = g_uri_list_extract_uris (data->data);
+
+for (listItem = uriList; *listItem != NULL; listItem++)
+{
+	fprintf(stderr, "%s\n", listItem);
+
+}
+g_strfreev (uriList);
+
+/*	GList *list = NULL;
 	GSList *file_list = NULL;
 	GList *p = NULL;
 
@@ -641,6 +654,7 @@ void droplist_drag_data_received (GtkWidget *widget,
 	gnome_vfs_uri_list_free (list);
 
 	file_list = g_slist_reverse (file_list);
+*/
 }
 
 
@@ -755,7 +769,7 @@ void droplist_row_activated (GtkTreeView *treeview,
 	gtk_tree_model_get (model, &it, COL_PATH, &path, -1);
 	path = g_strdup_printf ("file://%s", path);
 
-	gnome_vfs_url_show (path);
+	//gnome_vfs_url_show (path);
 
 	g_free (path);
 }
