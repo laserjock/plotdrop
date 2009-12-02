@@ -618,43 +618,18 @@ void droplist_drag_data_received (GtkWidget *widget,
                                   gpointer user_data)
 {
 gchar **uriList;
-gchar *listItem;
 
 uriList = g_uri_list_extract_uris (data->data);
 
-for (listItem = uriList; *listItem != NULL; listItem++)
-{
-	fprintf(stderr, "%s\n", listItem);
-
-}
-g_strfreev (uriList);
-
-/*	GList *list = NULL;
-	GSList *file_list = NULL;
-	GList *p = NULL;
-
-	list = gnome_vfs_uri_list_parse (data->data);
-	p = list;
-
-	while (p != NULL)
+for (int i = 0; uriList[i] != NULL; i++)
 	{
-		file_list = g_slist_prepend (file_list,
-			gnome_vfs_uri_to_string ((const GnomeVFSURI*)(p->data),
-			GNOME_VFS_URI_HIDE_NONE));
+	gchar *filename = g_filename_from_uri (uriList[i], NULL, NULL);
+	droplist_add_file (filename);
 
-		gchar *uripath = gnome_vfs_uri_to_string ((const GnomeVFSURI*)(p->data), 0);
-		gchar *filename = g_filename_from_uri (uripath, NULL, NULL);
-		droplist_add_file (filename);
-		g_free (filename);
-		g_free (uripath);
-
-		p = g_list_next (p);
+	g_free(filename);
 	}
 
-	gnome_vfs_uri_list_free (list);
-
-	file_list = g_slist_reverse (file_list);
-*/
+g_strfreev (uriList);
 }
 
 
@@ -769,7 +744,10 @@ void droplist_row_activated (GtkTreeView *treeview,
 	gtk_tree_model_get (model, &it, COL_PATH, &path, -1);
 	path = g_strdup_printf ("file://%s", path);
 
-	//gnome_vfs_url_show (path);
+	/*
+	gnome_vfs_url_show(path); should get replaced with something like:
+	gtk_show_uri (NULL, path,gtk_get_current_event_time (), &error);
+	*/
 
 	g_free (path);
 }
