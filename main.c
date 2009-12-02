@@ -5,7 +5,7 @@
  * Copyright 2005 John Spray
  */
 
-#include <libgnomevfs/gnome-vfs.h>
+#include <gio/gio.h>
 #include <glib.h>
 
 #include "droplist.h"
@@ -16,8 +16,6 @@ int main(int argc, char **argv)
 {
 	gtk_set_locale ();
 	gtk_init (&argc,&argv);
-
-	gnome_vfs_init ();
 
 	gchar *ver = gnuplot_get_version ();
 	if (ver)

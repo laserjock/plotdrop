@@ -8,8 +8,8 @@ VERSION=0.5.2
 
 OBJECTS=main.o gnuplot.o droplist.o
 
-LIBS = `pkg-config --libs gtk+-2.0 gnome-vfs-2.0 libglade-2.0`
-CFLAGS = -g -Wall -pedantic -std=c99 `pkg-config --cflags gtk+-2.0 gnome-vfs-2.0 libglade-2.0` -DDATADIR="\"$(DATADIR)\"" -DVERSION="\"$(VERSION)\""
+LIBS = `pkg-config --libs gtk+-2.0 gio-2.0 glib-2.0 libglade-2.0`
+CFLAGS = -g -Wall -pedantic -std=c99 `pkg-config --cflags gtk+-2.0 gio-2.0 glib-2.0 libglade-2.0` -DDATADIR="\"$(DATADIR)\"" -DVERSION="\"$(VERSION)\""
 
 all: $(TARGET)
 
