@@ -3,6 +3,7 @@
  * See the COPYING file for licensing details.
  *
  * Copyright 2005 John Spray
+ * Copyright 2009 Jordan Mantha <jordan.mantha@gmail.com>
  */
 
 #include <gio/gio.h>

@@ -2,8 +2,14 @@
 PlotDrop
 ========
 A minimal GNOME frontend to GNUPlot.
-jcspray@icculus.org
-http://icculus.org/~jcspray/plotdrop/
+
+Originally created and developed by:
+John Spray <jcspray@icculus.org>
+http://icculus.org/~jcspray/
+
+Now maintained and developed by:
+Jordan Mantha <jordan.mantha@gmail.com>
+http://plotdrop.sourceforge.net
 
 PlotDrop is designed for quick and simple visualisation of 2D 
 data series.  It is not intended to encompass anywhere near 
@@ -31,11 +37,12 @@ after every data column.
 Compilation
 ===========
 
-PlotDrop is tested with GCC 3.3.  It requires the following 
+PlotDrop is tested with GCC 4.4.  It requires the following 
 libraries:
   * GTK+ 2.4 (earlier versions untested)
-  * libgnomevfs
+  * libglib (>= 2.16)
   * libglade
+  * gnuplot (>= 4.0)
 
 Just type "make".
 

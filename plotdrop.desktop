@@ -6,5 +6,5 @@ TryExec=plotdrop
 Icon=plotdrop.png
 Terminal=false
 Type=Application
-Categories=GNOME;Application;Graphics;
+Categories=Graphics;2DGraphics;
 StartupNotify=true
