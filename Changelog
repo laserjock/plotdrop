@@ -1,3 +1,8 @@
+Version 0.5.3:
+	* Jordan Mantha is taking over development, many thanks to John Spray
+	* Update to use GLib and GIO instead of deprecated GnomeVFS
+	* Added support for logarithmic axes (Johannes Marbach)
+	* Updated .desktop file
 
 Version 0.5.2:
 	* Debianised version number
