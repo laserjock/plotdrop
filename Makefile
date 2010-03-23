@@ -4,7 +4,7 @@ PREFIX=/usr/local
 DATADIR=$(PREFIX)/share/$(TARGET)
 BINDIR=$(PREFIX)/bin
 
-VERSION=0.5.2
+VERSION=0.5.4
 
 OBJECTS=main.o gnuplot.o droplist.o
 
