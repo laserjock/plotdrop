@@ -3,6 +3,19 @@ from threading import Thread
 
 class Gnuplot():
 	def __init__ (self, scriptfile=None):
+		self.fields = {
+			"xlabel": "set x label ###",
+			"ylabel": "set y label ###",
+			"title": "set title ###",
+			"logscaley": "set logscale y",
+			"logscalex": "set logscale x",
+			"zeroaxis": "set zeroaxis",
+			"grid": "set grid",
+			"xmin": "###",
+			"xmax": "###",
+			"ymin": "###",
+			"ymax": "###"}
+
 		if scriptfile:
 			self.temp_name = scriptfile
 			print "Temporary gnuplot script file:"
@@ -19,26 +32,27 @@ class Gnuplot():
 			plot = Popen([GP_name,args], bufsize=1000, stdout=PIPE).stdout
 			print plot.read()
 
-	def compose(self, data, temp_name):
-		fields = {
-			"xlabel": "set x label ###",
-			"ylabel": "set y label ###",
-			"title": "set title ###",
-			"logscaley": "set logscale y",
-			"logscalex": "set logscale x",
-			"zeroaxis": "set zeroaxis",
-			"grid": "set grid",}
+	def return_field(self, data, field):
+		if data.has_key(field):
+			return self.fields[field].replace("###", data[field])
+
+	def return_header(self, data):
+		fields = ["xlabel", "ylabel", "title", "logscaley", "logscalex",
+			"zeroaxis", "grid"]
+		script = []
+		for field in fields:
+			if self.return_field(data, field):
+				script.append(self.return_field(data, field))
+		return script
+			
 		
+
+	def compose(self, data, temp_name):		
 		
 		print "Composing the plot script:"
 		plotscript = []
-		plotscript.append("# gnuplot script created by Plotdrop")
+		plotscript += self.return_header(data)
 
-		for field in fields:
-			if data.has_key(field):
-				plotscript.append(fields[field].replace("###", data[field]))
-
-		
 		plotcommand = "plot "
 		xlimcmd = "["
 		if data.has_key("xmin"):
