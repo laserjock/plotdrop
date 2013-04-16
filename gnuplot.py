@@ -20,23 +20,24 @@ class Gnuplot():
 			print plot.read()
 
 	def compose(self, data, temp_name):
+		fields = {
+			"xlabel": "set x label ###",
+			"ylabel": "set y label ###",
+			"title": "set title ###",
+			"logscaley": "set logscale y",
+			"logscalex": "set logscale x",
+			"zeroaxis": "set zeroaxis",
+			"grid": "set grid",}
+		
+		
 		print "Composing the plot script:"
 		plotscript = []
 		plotscript.append("# gnuplot script created by Plotdrop")
-		if data.has_key("xlabel"):
-			plotscript.append("set xlabel \"%s\"" % data['xlabel'])
-		if data.has_key("ylabel"):
-			plotscript.append("set ylabel \"%s\"" % data['ylabel'])
-		if data.has_key("title"):
-			plotscript.append("set title \"%s\"" % data['title'])
-		if data.has_key("logscaley"):
-			plotscript.append("set logscale y")
-		if data.has_key("logscalex"):
-			plotscript.append("set logscale x")
-		if data.has_key("zeroaxis"):
-			plotscript.append("set zeroaxis")
-		if data.has_key("grid"):
-			plotscript.append("set grid")
+
+		for field in fields:
+			if data.has_key(field):
+				plotscript.append(fields[field].replace("###", data[field]))
+
 		
 		plotcommand = "plot "
 		xlimcmd = "["
