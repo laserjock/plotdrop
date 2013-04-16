@@ -54,22 +54,14 @@ class Gnuplot():
 		plotscript += self.return_header(data)
 
 		plotcommand = "plot "
-		xlimcmd = "["
-		if data.has_key("xmin"):
-			xlimcmd += data['xmin']
-		xlimcmd += ":"
-		if data.has_key("xmax"):
-			xlimcmd += data['xmax']
+		xlimcmd = "[" + return_field(data, "xmin")
+		xlimcmd += ":" + + return_field(data, "xmax")
 		xlimcmd += "]"
 		
-		ylimcmd = "["
-		if data.has_key("ymin"):
-			ylimcmd += data['ymin']
-		ylimcmd += ":"
-		if data.has_key("ymax"):
-			ylimcmd += data['ymax']
+		ylimcmd = "[" + return_field(data, "ymin")
+		ylimcmd += ":" + + return_field(data, "ymax")
 		ylimcmd += "]"
-		
+				
 		path = data['path']
 		
 		plotcommand += " \""+path+"\" "
