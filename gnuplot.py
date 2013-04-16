@@ -3,6 +3,19 @@ from threading import Thread
 
 class Gnuplot():
 	def __init__ (self, scriptfile=None):
+		self.fields = {
+			"xlabel": "set x label ###",
+			"ylabel": "set y label ###",
+			"title": "set title ###",
+			"logscaley": "set logscale y",
+			"logscalex": "set logscale x",
+			"zeroaxis": "set zeroaxis",
+			"grid": "set grid",
+			"xmin": "###",
+			"xmax": "###",
+			"ymin": "###",
+			"ymax": "###"}
+
 		if scriptfile:
 			self.temp_name = scriptfile
 			print "Temporary gnuplot script file:"
@@ -19,42 +32,41 @@ class Gnuplot():
 			plot = Popen([GP_name,args], bufsize=1000, stdout=PIPE).stdout
 			print plot.read()
 
-	def compose(self, data, temp_name):
+	def return_field(self, data, field):
+		if data.has_key(field):
+			return self.fields[field].replace("###", data[field])
+
+	def return_field_string(self, data, field):
+		if data.has_key(field):
+			return self.fields[field].replace("###", data[field])
+		return ""
+
+	def return_header(self, data):
+		fields = ["xlabel", "ylabel", "title", "logscaley", "logscalex",
+			"zeroaxis", "grid"]
+		script = []
+		for field in fields:
+			if self.return_field(data, field):
+				script.append(self.return_field(data, field))
+		return script
+			
+		
+
+	def compose(self, data, temp_name):		
+		
 		print "Composing the plot script:"
 		plotscript = []
-		plotscript.append("# gnuplot script created by Plotdrop")
-		if data.has_key("xlabel"):
-			plotscript.append("set xlabel \"%s\"" % data['xlabel'])
-		if data.has_key("ylabel"):
-			plotscript.append("set ylabel \"%s\"" % data['ylabel'])
-		if data.has_key("title"):
-			plotscript.append("set title \"%s\"" % data['title'])
-		if data.has_key("logscaley"):
-			plotscript.append("set logscale y")
-		if data.has_key("logscalex"):
-			plotscript.append("set logscale x")
-		if data.has_key("zeroaxis"):
-			plotscript.append("set zeroaxis")
-		if data.has_key("grid"):
-			plotscript.append("set grid")
-		
+		plotscript += self.return_header(data)
+
 		plotcommand = "plot "
-		xlimcmd = "["
-		if data.has_key("xmin"):
-			xlimcmd += data['xmin']
-		xlimcmd += ":"
-		if data.has_key("xmax"):
-			xlimcmd += data['xmax']
+		xlimcmd = "[" + self.return_field_string(data, "xmin")
+		xlimcmd += ":" + self.return_field_string(data, "xmax")
 		xlimcmd += "]"
 		
-		ylimcmd = "["
-		if data.has_key("ymin"):
-			ylimcmd += data['ymin']
-		ylimcmd += ":"
-		if data.has_key("ymax"):
-			ylimcmd += data['ymax']
+		ylimcmd = "[" + self.return_field_string(data, "ymin")
+		ylimcmd += ":" + self.return_field_string(data, "ymax")
 		ylimcmd += "]"
-		
+				
 		path = data['path']
 		
 		plotcommand += " \""+path+"\" "
