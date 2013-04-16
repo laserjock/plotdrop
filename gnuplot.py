@@ -36,6 +36,11 @@ class Gnuplot():
 		if data.has_key(field):
 			return self.fields[field].replace("###", data[field])
 
+	def return_field_string(self, data, field):
+		if data.has_key(field):
+			return self.fields[field].replace("###", data[field])
+		return ""
+
 	def return_header(self, data):
 		fields = ["xlabel", "ylabel", "title", "logscaley", "logscalex",
 			"zeroaxis", "grid"]
@@ -54,12 +59,12 @@ class Gnuplot():
 		plotscript += self.return_header(data)
 
 		plotcommand = "plot "
-		xlimcmd = "[" + return_field(data, "xmin")
-		xlimcmd += ":" + + return_field(data, "xmax")
+		xlimcmd = "[" + self.return_field_string(data, "xmin")
+		xlimcmd += ":" + self.return_field_string(data, "xmax")
 		xlimcmd += "]"
 		
-		ylimcmd = "[" + return_field(data, "ymin")
-		ylimcmd += ":" + + return_field(data, "ymax")
+		ylimcmd = "[" + self.return_field_string(data, "ymin")
+		ylimcmd += ":" + self.return_field_string(data, "ymax")
 		ylimcmd += "]"
 				
 		path = data['path']
