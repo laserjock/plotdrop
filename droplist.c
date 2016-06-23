@@ -620,7 +620,7 @@ void droplist_drag_data_received (GtkWidget *widget,
 {
 gchar **uriList;
 
-uriList = g_uri_list_extract_uris (data->data);
+uriList = g_uri_list_extract_uris ((gchar *) data->data);
 
 for (int i = 0; uriList[i] != NULL; i++)
 	{
