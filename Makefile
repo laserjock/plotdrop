@@ -14,7 +14,7 @@ CFLAGS = -g -Wall -pedantic -std=c99 `pkg-config --cflags gtk+-2.0 gio-2.0 glib-
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CC) -o $(TARGET) $(CFLAGS) $(LIBS) $(OBJECTS)
+	$(CC) -o $(TARGET) $(CFLAGS) $(OBJECTS) $(LIBS)
 
 clean:
 	rm -f *.o $(TARGET)
