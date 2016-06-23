@@ -28,10 +28,13 @@ install: all
 	install -m 0644 plotdrop.png $(DESTDIR)$(DATADIR)
 	install -d $(DESTDIR)$(PREFIX)/share/pixmaps
 	install -m 0644 plotdrop.png $(DESTDIR)$(PREFIX)/share/pixmaps
+	install -d $(DESTDIR)$(PREFIX)/share/appdata
+	install -m 0644 plotdrop.appdata.xml $(DESTDIR)$(PREFIX)/share/appdata
 
 uninstall:
 	rm -f $(DESTDIR)$(BINDIR)/$(TARGET) \
 	$(DESTDIR)$(DATADIR)/droplist.glade \
 	$(DESTDIR)$(PREFIX)/share/pixmaps/plotdrop.png \
 	$(DESTDIR)$(DATADIR)/plotdrop.png \
-	$(DESTDIR)$(PREFIX)/share/applications/plotdrop.desktop
+	$(DESTDIR)$(PREFIX)/share/applications/plotdrop.desktop \
+	$(DESTDIR)$(PREFIX)/share/appdata/plotdrop.appdata.xml
