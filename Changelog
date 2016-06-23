@@ -1,3 +1,6 @@
+Version 0.5.5:
+
+
 Version 0.5.4:
 	* Fix SF bug #1 - GTK_DEST_DEFAULT_DROP was causing duplicate files on drop
 	* Fix SF bug #2 - added an AppData file (thanks to Ryan Lerch and Richard Hughes)
