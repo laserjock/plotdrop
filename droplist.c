@@ -166,7 +166,7 @@ void droplist_init_gui ()
 
 	gtk_drag_dest_set (
 		treeview,
-		GTK_DEST_DEFAULT_ALL,
+		GTK_DEST_DEFAULT_MOTION | GTK_DEST_DEFAULT_HIGHLIGHT,
 		drag_types,
 		n_drag_types,
 		GDK_ACTION_COPY | GDK_ACTION_LINK | GDK_ACTION_MOVE);
