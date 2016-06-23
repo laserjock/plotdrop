@@ -1,3 +1,9 @@
+Version 0.5.4:
+	* Fix SF bug #1 - GTK_DEST_DEFAULT_DROP was causing duplicate files on drop
+	* Fix SF bug #2 - added an AppData file (thanks to Ryan Lerch and Richard Hughes)
+	* Fix LP bug #770869 - flip $LIBS and $OBJECTS in Makefile to avoid FTBFS
+	* Some misc. fixes in the About dialog
+
 Version 0.5.3:
 	* Jordan Mantha is taking over development, many thanks to John Spray
 	* Update to use GLib and GIO instead of deprecated GnomeVFS

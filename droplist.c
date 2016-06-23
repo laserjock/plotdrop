@@ -862,7 +862,7 @@ void droplist_about ()
 		"A GNOME frontend to gnuplot, for simple graph plotting");
 
 	gtk_about_dialog_set_copyright (GTK_ABOUT_DIALOG (aboutdialog),
-		"Copyright © 2005 John Spray\nCopyright © 2008-2016 Jordan Mantha");
+		"Copyright © 2005 John Spray\nCopyright © 2008 Jordan Mantha");
 
 	gtk_about_dialog_set_website (GTK_ABOUT_DIALOG (aboutdialog),
 		"http://plotdrop.sourceforge.net/");
