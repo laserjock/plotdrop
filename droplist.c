@@ -481,7 +481,7 @@ void droplist_plot ()
 	plotdata data;
 
 	droplist_getdata (&data);
-	droplist_handle_plot (&data, NULL, NULL, 0);
+	droplist_handle_plot (&data, 0, NULL, 0);
 	droplist_freedata (&data);
 }
 
